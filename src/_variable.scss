@@ -1,0 +1,10 @@
+$color: rgba(220, 214, 211, 1);
+
+@mixin tiles{
+    float: left;
+    width: 96px;
+    height: 96px;
+    border: 2px solid;
+    background: url("./assets/images/cookie2.jpg");
+    cursor: pointer;
+}
