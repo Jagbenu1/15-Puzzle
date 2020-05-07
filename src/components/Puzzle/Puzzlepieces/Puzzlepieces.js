@@ -1,6 +1,6 @@
 import React from 'react';
 //import Auxilliary from '../../../hoc/Auxilliary';
-import '../Puzzle.scss';
+import '../Puzzle.css';
 
 const puzzlepieces = props =>(
     <div

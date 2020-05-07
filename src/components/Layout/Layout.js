@@ -1,5 +1,5 @@
 import React from 'react';
-import Classes from './Layout.module.scss';
+import Classes from './Layout.module.css';
 
 const layout = (props) =>(
     <main className={Classes.Content}>

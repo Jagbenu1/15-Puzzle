@@ -1,0 +1,252 @@
+.Puzzle {
+  margin: 30px auto;
+  width: 400px;
+  height: 400px;
+  font-size: 50pt;
+}
+
+.movable:hover {
+  float: left;
+  color: green;
+  border: 2px solid red;
+  text-decoration: underline;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.tile1 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: 0 0;
+}
+
+.tile2 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -100px 0;
+}
+
+.tile3 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -200px 0;
+}
+
+.tile4 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -300px 0;
+}
+
+.tile5 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: 0 -100px;
+}
+
+.tile6 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -100px -100px;
+}
+
+.tile7 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -200px -100px;
+}
+
+.tile8 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -300px -100px;
+}
+
+.tile9 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: 0 -200px;
+}
+
+.tile10 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -100px -200px;
+}
+
+.tile11 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -200px -200px;
+}
+
+.tile12 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -300px -200px;
+}
+
+.tile13 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: 0 -300px;
+}
+
+.tile14 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -100px -300px;
+}
+
+.tile15 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -200px -300px;
+}
+
+.tile16 {
+  float: left;
+  width: 96px;
+  height: 96px;
+  border: 2px solid;
+  background: url("../../assets/images/cookie2.jpg");
+  cursor: pointer;
+  background-position: -300px -300px;
+}
+
+@-webkit-keyframes pop {
+  0% {
+    transfrom: scale(0);
+  }
+  60% {
+    transfrom: scale(1.1);
+  }
+  80% {
+    transfrom: scale(0.9);
+  }
+  100% {
+    transfrom: scale(1);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transfrom: scale(0);
+  }
+  60% {
+    transfrom: scale(1.1);
+  }
+  80% {
+    transfrom: scale(0.9);
+  }
+  100% {
+    transfrom: scale(1);
+  }
+}
+
+@-webkit-keyframes rubber {
+  0% {
+    -webkit-transform: scale3d(1.2, 0.8, 1);
+            transform: scale3d(1.2, 0.8, 1);
+  }
+  25% {
+    -webkit-transform: scale3d(0.8, 1.2, 1);
+            transform: scale3d(0.8, 1.2, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.1, 0.9, 1);
+            transform: scale3d(1.1, 0.9, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+}
+
+@keyframes rubber {
+  0% {
+    -webkit-transform: scale3d(1.2, 0.8, 1);
+            transform: scale3d(1.2, 0.8, 1);
+  }
+  25% {
+    -webkit-transform: scale3d(0.8, 1.2, 1);
+            transform: scale3d(0.8, 1.2, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.1, 0.9, 1);
+            transform: scale3d(1.1, 0.9, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+}
+/*# sourceMappingURL=Puzzle.css.map */

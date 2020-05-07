@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAA;EACH,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,SAAS;EAC3B,WAAW,EAAE,IAAI;EACjB,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "Scramble.module.scss"
+    ],
+    "names": [],
+    "file": "Scramble.module.css"
+}

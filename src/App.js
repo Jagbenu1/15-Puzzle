@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Layout from './components/Layout/Layout';
-import PuzzleBuilder from './containers/PuzzleBuilder/PuzzleBuilder';
+import PuzzleBuilder from './containers/PuzzleBuilder';
 
 
 class App extends Component {

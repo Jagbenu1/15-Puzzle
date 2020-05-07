@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import Auxilliary from '../../hoc/Auxilliary';
-import Puzzle from '../../components/Puzzle/Puzzle';
-import classes from './PuzzleBuilder.module.scss';
-import Scramble from '../../components/Scramble/Scramble';
-import '../../components/Puzzle/Puzzle.scss';
+import Auxilliary from '../hoc/Auxilliary';
+import Puzzle from '../components/Puzzle/Puzzle';
+import classes from './PuzzleBuilder.module.css';
+import Scramble from '../components/Scramble/Scramble';
+import '../components/Puzzle/Puzzle.css';
 
 
 class PuzzleBuilder extends Component {
@@ -31,52 +31,48 @@ class PuzzleBuilder extends Component {
     }
 
     swapTiles = (cell1, cell2) => {
-
-        
-            
-
         //swap IDs
         let temp = document.getElementById(cell1).className;
-
-        document.getElementById(cell1).className = document.getElementById(cell2);
+    
+        document.getElementById(cell1).className = document.getElementById(cell2).className;
 
         document.getElementById(cell2).className = temp;
+
+        console.log(document.getElementById(cell2).className);
+
+        document.getElementById(cell2).classList.remove("movable");
+        
+        console.log(document.getElementById(cell2).className);
+        
 
         //swap number text
 
         let temp2 = document.getElementById(cell1).innerHTML;
-
+    
         document.getElementById(cell1).innerHTML = document.getElementById(cell2).innerHTML;
 
         document.getElementById(cell2).innerHTML = temp2;
         
-
         //remove the animations
-        document.getElementById(cell1).style.animation = "";
+
+        document.getElementById(cell2).style.animation = "";
+        
+        
     }
 
 
       slide(row, column){
         let cur = document.getElementById(row + "-" + column).innerHTML;
-        console.log(cur);
         
-        if(cur != ''){
+        if(cur !== ''){
             
             let curId = row + "-" + column;
-            console.log(curId);
             
-
             // get all positions of tiles next to click title
             let right = row + "-" + (column+1);
             let left = row + "-" + (column-1);
             let up = (row-1) + "-" + column;
             let down = (row+1) + "-" + column;
-
-            console.log(right);
-            console.log(left);
-            console.log(up);
-            console.log(down);
-            
 
             //checks for white tiles on depending sides
             this.checkSlide(curId, right);
@@ -85,9 +81,7 @@ class PuzzleBuilder extends Component {
             this.checkSlide(curId, down);
         }
         // find empty tile, set background to empty
-        // and set other tiles to the background image
-        console.log("Skipped toooo!");
-        
+        // and set other tiles to the background imag
         this.set();
     }
 
@@ -95,10 +89,10 @@ class PuzzleBuilder extends Component {
         if(position[0] >= 1 && position[0] <= 4 && position[2] >= 1 && position[2] <= 4){
             if( document.getElementById(position).innerHTML===""){
                 //adds pop animation
-                console.log("Im in here too????");
                 
-                document.getElementById(position).style.animation = "pop . 5s";
-
+                document.getElementById(position).style["-webkit-animation"] = "pop 5s";
+                console.log(document.getElementById(position).style.animation);
+                
                 //swaps clicked tile and empty tile
                 this.swapTiles(curTile, position);
                 return;
@@ -108,10 +102,9 @@ class PuzzleBuilder extends Component {
         }
     }
 
-   
      shuffle() {
         //shuffle multiple times using random row and col
-        for(let i =0; i < 1000; i++){
+        for(let i =0; i < 5; i++){
             let c = Math.floor(Math.random()*4 + 1);
             let r = c;
             
@@ -126,24 +119,22 @@ class PuzzleBuilder extends Component {
 
      set(){
         for(var i = 1; i <= 16; i++){
-            var a = document.getElementsByClassName("tile"+ i)[0];
+            let a = document.getElementsByClassName("tile"+ i)[0];
             // console.log(a);
             
             //found empty tile, saves position
             if(a.innerHTML === ""){
-                console.log("im in");
                 
-                a.style.background = "white"; 
+                a.style.background = "white";
                 var row = parseInt(a.id[0]);
-                    console.log(row);
                 var col = parseInt(a.id[2]);
-                    console.log(col);
             }
             else{
-                console.log("Skipped!!!!!");
-                a.style.backgroundImage = "url(../assets/images/cookie2.jpg)";
+                //console.log("Skipped!!!!!");
+                a.style.background = 'url("../../assets/images/cookie2.jpg")';
                 //reset class
                 a.classname = "tile"+i;
+                console.log(a.style.animation);
             }
     }
      //get right, left, top and down tiles from empty
@@ -153,17 +144,17 @@ class PuzzleBuilder extends Component {
      let down = document.getElementById((row+1) + "-" + col);
  
      //set movable class to tiles around empty tile
-     if(right){
-         right.className = right.className + "movable";
-     } 
-     if(left){
-         left.className = left.className + "movable";
+     if(right !== null){
+        right.classList.add("movable");
      }
-     if(up){
-         up.className = up.className + "movable";
+     if(left !== null){
+        left.classList.add("movable");
      }
-     if(down){
-         down.className = down.className + "movable";
+     if(up !== null){
+        up.classList.add("movable");
+     }
+     if(down !== null){
+        down.classList.add("movable");
      }
 }
 

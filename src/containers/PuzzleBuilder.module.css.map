@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,IAAI,CAAA;EACA,SAAS,EAAE,IAAI;EACf,UAAU,EAAE,MAAM;EAClB,gBAAgB,ECLZ,OAAsB;CDM7B;;AAED,AAAA,OAAO,CAAA;EACH,KAAK,EAAE,UAAU;EACjB,MAAM,EAAE,UAAU;EAClB,MAAM,EAAE,MAAM;EACd,MAAM,EAAE,eAAe;CAC1B;;AAED,AAAA,KAAK,CAAA;EACD,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,UAAU;EAClB,MAAM,EAAE,gBAAgB;EACxB,MAAM,EAAE,MAAM;EACd,UAAU,EAAE,EAAE;EACd,gBAAgB,EAAE,KAAK;CAC1B",
+    "sources": [
+        "PuzzleBuilder.module.scss",
+        "../../_variable.scss"
+    ],
+    "names": [],
+    "file": "PuzzleBuilder.module.css"
+}
