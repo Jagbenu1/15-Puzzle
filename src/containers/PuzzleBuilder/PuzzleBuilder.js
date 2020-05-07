@@ -121,13 +121,13 @@ class PuzzleBuilder extends Component {
             
             //found empty tile, saves position
             if(a.innerHTML === ""){
-                a.style.background = "white";
+                a.style.background = "url('../../assets/images/yellow.jpg')";
                 var row = parseInt(a.id[0]);
                 var col = parseInt(a.id[2]);
             }
             else{
                 //console.log("Skipped!!!!!");
-                a.style.backgroundImage = 'url("../../assets/images/cookie2.jpg")';
+                a.style.background = "url('../../assets/images/cookie2.jpg')";
                 //reset class
                 a.className = "tile"+i;
                 //console.log(a.style.animation);
