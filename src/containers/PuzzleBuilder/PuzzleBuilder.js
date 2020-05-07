@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-import Auxilliary from '../hoc/Auxilliary';
-import Puzzle from '../components/Puzzle/Puzzle';
+import Auxilliary from '../../hoc/Auxilliary';
+import Puzzle from '../../components/Puzzle/Puzzle';
 import classes from './PuzzleBuilder.module.css';
-import Scramble from '../components/Scramble/Scramble';
-import '../components/Puzzle/Puzzle.css';
+import Scramble from '../../components/Scramble/Scramble';
+import '../../components/Puzzle/Puzzle.css';
 
 
 class PuzzleBuilder extends Component {
-
     constructor(){
         super();
         this.slide = this.slide.bind(this);
@@ -44,7 +43,6 @@ class PuzzleBuilder extends Component {
         
         console.log(document.getElementById(cell2).className);
         
-
         //swap number text
 
         let temp2 = document.getElementById(cell1).innerHTML;
@@ -54,10 +52,9 @@ class PuzzleBuilder extends Component {
         document.getElementById(cell2).innerHTML = temp2;
         
         //remove the animations
-
+        
         document.getElementById(cell2).style.animation = "";
-        
-        
+
     }
 
 
@@ -124,17 +121,17 @@ class PuzzleBuilder extends Component {
             
             //found empty tile, saves position
             if(a.innerHTML === ""){
-                
                 a.style.background = "white";
                 var row = parseInt(a.id[0]);
                 var col = parseInt(a.id[2]);
             }
             else{
                 //console.log("Skipped!!!!!");
-                a.style.background = 'url("../../assets/images/cookie2.jpg")';
+                a.style.backgroundImage = 'url("../../assets/images/cookie2.jpg")';
                 //reset class
-                a.classname = "tile"+i;
-                console.log(a.style.animation);
+                a.className = "tile"+i;
+                //console.log(a.style.animation);
+                console.log(a.style.backgroundImage);
             }
     }
      //get right, left, top and down tiles from empty
