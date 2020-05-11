@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Puzzlepieces from '../Puzzle/Puzzlepieces/Puzzlepieces';
-
+import './Puzzle.css';
 
 
 class puzzle extends Component{

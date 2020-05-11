@@ -32,29 +32,14 @@ class PuzzleBuilder extends Component {
     swapTiles = (cell1, cell2) => {
         //swap IDs
         let temp = document.getElementById(cell1).className;
-    
         document.getElementById(cell1).className = document.getElementById(cell2).className;
-
         document.getElementById(cell2).className = temp;
 
-        console.log(document.getElementById(cell2).className);
-
-        document.getElementById(cell2).classList.remove("movable");
-        
-        console.log(document.getElementById(cell2).className);
-        
         //swap number text
 
         let temp2 = document.getElementById(cell1).innerHTML;
-    
         document.getElementById(cell1).innerHTML = document.getElementById(cell2).innerHTML;
-
         document.getElementById(cell2).innerHTML = temp2;
-        
-        //remove the animations
-        
-        document.getElementById(cell2).style.animation = "";
-
     }
 
 
@@ -85,10 +70,9 @@ class PuzzleBuilder extends Component {
      checkSlide(curTile, position){
         if(position[0] >= 1 && position[0] <= 4 && position[2] >= 1 && position[2] <= 4){
             if( document.getElementById(position).innerHTML===""){
-                //adds pop animation
-                
-                document.getElementById(position).style["-webkit-animation"] = "pop 5s";
-                console.log(document.getElementById(position).style.animation);
+                // //adds pop animation
+                // document.getElementById(position).style.animation = "pop 5s";
+                // //console.log(document.getElementById(position).style.animation);
                 
                 //swaps clicked tile and empty tile
                 this.swapTiles(curTile, position);
@@ -101,9 +85,10 @@ class PuzzleBuilder extends Component {
 
      shuffle() {
         //shuffle multiple times using random row and col
-        for(let i =0; i < 5; i++){
+        //let rand = Math.floor(Math.random()*100 + 1);
+        for(let i =0; i < 250; i++){
             let c = Math.floor(Math.random()*4 + 1);
-            let r = c;
+            let r = Math.floor(Math.random()*4 + 1);
             
             this.slide(r,c);
         }
@@ -115,44 +100,41 @@ class PuzzleBuilder extends Component {
     }
 
      set(){
-        for(var i = 1; i <= 16; i++){
+        for(let i = 1; i <= 16; i++){
             let a = document.getElementsByClassName("tile"+ i)[0];
-            // console.log(a);
             
             //found empty tile, saves position
             if(a.innerHTML === ""){
-                a.style.background = "url('../../assets/images/yellow.jpg')";
-                var row = parseInt(a.id[0]);
-                var col = parseInt(a.id[2]);
+                a.style.backgroundImage = "url('/empty.png')";
+                let row = parseInt(a.id[0]);
+                let col = parseInt(a.id[2]);
+
+                 //get right, left, top and down tiles from empty
+                let right = document.getElementById(row + "-" + (col+1));
+                let left = document.getElementById(row + "-" + (col-1));
+                let up = document.getElementById((row-1) + "-" + col);
+                let down = document.getElementById((row+1) + "-" + col);
+            
+                //set movable class to tiles around empty tile
+                if(right !== null){
+                    right.classList.add("movable");
+                }
+                if(left !== null){
+                    left.classList.add("movable");
+                }
+                if(up !== null){
+                    up.classList.add("movable");
+                }
+                if(down !== null){
+                    down.classList.add("movable");
+                }
             }
             else{
-                //console.log("Skipped!!!!!");
-                a.style.background = "url('../../assets/images/cookie2.jpg')";
+                a.style.backgroundImage = "url('/yellow.jpg')";
                 //reset class
                 a.className = "tile"+i;
-                //console.log(a.style.animation);
-                console.log(a.style.backgroundImage);
             }
     }
-     //get right, left, top and down tiles from empty
-     let right = document.getElementById(row + "-" + (col+1));
-     let left = document.getElementById(row + "-" + (col-1));
-     let up = document.getElementById((row-1) + "-" + col);
-     let down = document.getElementById((row+1) + "-" + col);
- 
-     //set movable class to tiles around empty tile
-     if(right !== null){
-        right.classList.add("movable");
-     }
-     if(left !== null){
-        left.classList.add("movable");
-     }
-     if(up !== null){
-        up.classList.add("movable");
-     }
-     if(down !== null){
-        down.classList.add("movable");
-     }
 }
 
     render(){
@@ -173,8 +155,9 @@ class PuzzleBuilder extends Component {
                         {puzzle}
                     </div>
                     <Scramble
-                        clicked ={this.shuffle}
-                    >Scramble</Scramble>
+                        clicked = {this.shuffle}>
+                        Scramble
+                    </Scramble>
                 </Auxilliary>
             </Auxilliary>
            
