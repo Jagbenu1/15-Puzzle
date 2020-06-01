@@ -14,6 +14,7 @@ class PuzzleBuilder extends Component {
         this.checkSlide = this.checkSlide.bind(this);
         this.set = this.set.bind(this);
         this.shuffle = this.shuffle.bind(this);
+        this.checkWin = this.checkWin.bind(this);
     }
 
     state = {
@@ -29,7 +30,7 @@ class PuzzleBuilder extends Component {
         ]
     }
 
-    swapTiles = (cell1, cell2) => {
+    swapTiles = (cell1, cell2, w) => {
         //swap IDs
         let temp = document.getElementById(cell1).className;
         document.getElementById(cell1).className = document.getElementById(cell2).className;
@@ -40,10 +41,14 @@ class PuzzleBuilder extends Component {
         let temp2 = document.getElementById(cell1).innerHTML;
         document.getElementById(cell1).innerHTML = document.getElementById(cell2).innerHTML;
         document.getElementById(cell2).innerHTML = temp2;
+
+        if(!w){
+            this.checkWin();
+        }
     }
 
 
-      slide(row, column){
+      slide(row, column, w){
         let cur = document.getElementById(row + "-" + column).innerHTML;
         
         if(cur !== ''){
@@ -57,17 +62,17 @@ class PuzzleBuilder extends Component {
             let down = (row+1) + "-" + column;
 
             //checks for white tiles on depending sides
-            this.checkSlide(curId, right);
-            this.checkSlide(curId, left);
-            this.checkSlide(curId, up);
-            this.checkSlide(curId, down);
+            this.checkSlide(curId, right, w);
+            this.checkSlide(curId, left, w);
+            this.checkSlide(curId, up, w);
+            this.checkSlide(curId, down, w);
         }
         // find empty tile, set background to empty
         // and set other tiles to the background imag
         this.set();
     }
 
-     checkSlide(curTile, position){
+     checkSlide(curTile, position, w){
         if(position[0] >= 1 && position[0] <= 4 && position[2] >= 1 && position[2] <= 4){
             if( document.getElementById(position).innerHTML===""){
                 // //adds pop animation
@@ -75,7 +80,7 @@ class PuzzleBuilder extends Component {
                 // //console.log(document.getElementById(position).style.animation);
                 
                 //swaps clicked tile and empty tile
-                this.swapTiles(curTile, position);
+                this.swapTiles(curTile, position, w);
                 return;
             }
         }else{
@@ -136,6 +141,31 @@ class PuzzleBuilder extends Component {
             }
     }
 }
+
+    checkWin(){
+        let count = 1;
+        let win = true;
+
+        //checks each tile to see if it is in order
+        for(let i = 1;i <= 4; i++){
+            for(let j = 1; j <= 4;j++){
+                let tileClass = document.getElementById(i+"-"+j).className;
+
+                //check to see if they are in numerical order
+                if(tileClass !== ("tile"+(count)) && tileClass !== ("tile"+(count))+" movable" ){
+                    win=false;
+                    break;
+                }
+                count++;
+                console.log(count);
+                
+            }
+        }
+        //if win is true though
+        if(win){
+            alert("You have won the Game!!!!!");
+        }
+    }
 
     render(){
 
